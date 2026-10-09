@@ -96,7 +96,7 @@ p{margin:0}
 .dom{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center}
 .dom .name{display:flex;gap:8px;align-items:center;min-width:0}
 .dom .name b{font-weight:600;font-size:.95rem}
-.dom .w{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.dom .w{font-size:.8rem;color:var(--muted);font-variant-numeric:tabular-nums}
 .bar{grid-column:1/-1;height:10px;border-radius:999px;background:var(--rule);overflow:hidden;position:relative}
 .bar i{position:absolute;inset-block:0;inset-inline-start:0;border-radius:999px}
 .stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
@@ -4363,7 +4363,6 @@ function viewHome(){
   const mk=k=>S.tests[k]?`${AR(S.tests[k].score)}٪`:"—";
   return `
   <section class="stack" style="padding-top:18px">
-    <div class="credit"><span class="cm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><div><div class="ck">إعداد وتصميم</div><div class="cn">الأستاذ يوسف الشمراني</div></div></div>
     <div class="sheet today">
       <div class="kicker">${nt?`اليوم ${AR(idx+1)} من ${AR(plan.length+1)} · ${fmtDate(todayStr())} · الاختبار ${fmtDate(S.exam)}`:"خلصت الخطة كاملة"}</div>
       ${nt?`<h1>${esc(nt.t)}</h1><p class="muted">${esc(nt.s)}</p>`:`<h1>جاهز للاختبار</h1><p class="muted">راجع ورقة الليلة الأخيرة والأخطاء المتبقية.</p>`}
@@ -4385,6 +4384,7 @@ function viewHome(){
     <div class="section-title"><h2>حسب المعيار</h2><span class="line"></span></div>
     <div class="stdgrid">${SORDER.map(stdCard).join("")}</div>
     <div class="row" style="justify-content:space-between"><div id="syncline" class="sync"></div><button class="btn sm quiet" data-go="settings">الإعدادات والتقرير</button></div>
+    <div class="credit"><span class="cm" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 013 3L7 19l-4 1 1-4z"/></svg></span><div><div class="ck">إعداد وتصميم</div><div class="cn">الأستاذ يوسف الشمراني</div></div></div>
   </section>`;
 }
 function viewPlan(){
